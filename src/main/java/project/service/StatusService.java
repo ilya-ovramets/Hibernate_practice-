@@ -2,7 +2,7 @@ package project.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import project.dao.StatusRepository;
+import project.repository.StatusRepository;
 import project.dto.StatusDTO;
 import project.mapper.StatusMapper;
 

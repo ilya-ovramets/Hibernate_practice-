@@ -2,7 +2,7 @@ package project.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import project.dao.TagRepository;
+import project.repository.TagRepository;
 import project.dto.TagDTO;
 
 import project.mapper.TagMapper;

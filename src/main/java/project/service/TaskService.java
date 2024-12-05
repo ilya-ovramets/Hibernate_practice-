@@ -2,7 +2,7 @@ package project.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import project.dao.TaskRepository;
+import project.repository.TaskRepository;
 import project.dto.TaskDTO;
 import project.mapper.TaskMapper;
 

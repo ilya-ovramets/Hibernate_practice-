@@ -2,7 +2,7 @@ package project.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import project.dao.RoleRepository;
+import project.repository.RoleRepository;
 import project.dto.RoleDTO;
 import project.mapper.RoleMapper;
 

@@ -1,15 +1,8 @@
 package org.example;
 
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import project.dto.RoleDTO;
-import project.entity.*;
-import project.dao.*;
 import project.service.RoleService;
-
-import java.sql.ResultSet;
-import java.util.List;
 
 public class Main {
 
