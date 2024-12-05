@@ -4,12 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import project.dao.RoleRepository;
 import project.dto.RoleDTO;
-import project.dto.StatusDTO;
 import project.mapper.RoleMapper;
 
 import java.util.List;
 
-public class RoleService implements CrudService<RoleDTO>{
+public class RoleService implements IService<RoleDTO> {
 
 
     private final static Logger log = LogManager.getLogger(RoleService.class);

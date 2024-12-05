@@ -8,7 +8,7 @@ import project.mapper.StatusMapper;
 
 import java.util.List;
 
-public class StatusService implements CrudService<StatusDTO>{
+public class StatusService implements IService<StatusDTO> {
 
     private static final Logger log = LogManager.getLogger(StatusService.class);
     private final StatusRepository statusRepository;

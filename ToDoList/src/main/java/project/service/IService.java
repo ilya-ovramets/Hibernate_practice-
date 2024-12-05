@@ -2,7 +2,7 @@ package project.service;
 
 import java.util.List;
 
-public interface CrudService<T> {
+public interface IService<T> {
 
     T getById(long id);
 

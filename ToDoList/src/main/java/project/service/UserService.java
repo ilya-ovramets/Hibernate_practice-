@@ -8,7 +8,7 @@ import project.mapper.UserMapper;
 
 import java.util.List;
 
-public class UserService implements CrudService<UserDTO>{
+public class UserService implements IService<UserDTO> {
 
     private final static Logger log = LogManager.getLogger(UserService.class);
     private final UserMapper userMapper;

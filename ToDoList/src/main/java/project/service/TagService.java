@@ -9,7 +9,7 @@ import project.mapper.TagMapper;
 
 import java.util.List;
 
-public class TagService implements CrudService<TagDTO>{
+public class TagService implements IService<TagDTO> {
 
     private static final Logger log = LogManager.getLogger(TagService.class);
     private final TagRepository tagDao;

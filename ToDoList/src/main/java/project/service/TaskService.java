@@ -8,7 +8,7 @@ import project.mapper.TaskMapper;
 
 import java.util.List;
 
-public class TaskService implements CrudService<TaskDTO>{
+public class TaskService implements IService<TaskDTO> {
 
     private static final Logger log = LogManager.getLogger(TaskService.class);
 
