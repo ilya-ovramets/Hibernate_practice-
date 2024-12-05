@@ -1,8 +1,8 @@
 package org.example;
 
 
-import project.dto.RoleDTO;
-import project.service.RoleService;
+import org.example.dto.RoleDTO;
+import org.example.service.RoleService;
 
 public class Main {
 

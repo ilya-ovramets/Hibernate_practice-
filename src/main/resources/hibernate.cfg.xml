@@ -15,10 +15,10 @@
 
 <!--        <property name="hibernate.current_session_context_class">transaction </property>-->
 
-        <mapping class="project.entity.User"/>
-        <mapping class="project.entity.Tag"/>
-        <mapping class="project.entity.Task"/>
-        <mapping class="project.entity.Status"/>
-        <mapping class="project.entity.Role"/>
+        <mapping class="org.example.entity.User"/>
+        <mapping class="org.example.entity.Tag"/>
+        <mapping class="org.example.entity.Task"/>
+        <mapping class="org.example.entity.Status"/>
+        <mapping class="org.example.entity.Role"/>
     </session-factory>
 </hibernate-configuration>

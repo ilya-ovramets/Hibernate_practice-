@@ -4,7 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75bc6fd0-5f1b-4320-8014-e1e679cec655" name="Changes" comment="" />
+    <list default="true" id="75bc6fd0-5f1b-4320-8014-e1e679cec655" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/dto/RoleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/RoleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/dto/StatusDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/StatusDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/dto/TagDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/TagDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/dto/TaskDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/TaskDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/entity/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/entity/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/entity/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mapper/IMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mapper/IMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mapper/RoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mapper/StatusMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mapper/StatusMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mapper/TagMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mapper/TagMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mapper/TaskMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mapper/TaskMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/IRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/StatusRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/StatusRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/TagRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/service/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/IService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/service/StatusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/StatusService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/service/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/TagService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
