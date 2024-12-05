@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 6.6.3.Final//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-6.6.3.Final.dtd">
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5433/TODO</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">root2003</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+<!--        <property name="hibernate.current_session_context_class">transaction </property>-->
+
+        <mapping class="project.entity.User"/>
+        <mapping class="project.entity.Tag"/>
+        <mapping class="project.entity.Task"/>
+        <mapping class="project.entity.Status"/>
+        <mapping class="project.entity.Role"/>
+    </session-factory>
+</hibernate-configuration>
