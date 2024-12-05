@@ -8,20 +8,21 @@ import org.hibernate.Transaction;
 import org.example.entity.Role;
 
 import java.util.List;
+import java.util.Optional;
 
 public class RoleRepository implements IRepository<Role>
 {
     private final static Logger log = LogManager.getLogger(RoleRepository.class);
 
     @Override
-    public Role findById(long id) {
+    public Optional<Role> findById(long id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
 
-            return session.get(Role.class,id);
+            return Optional.ofNullable(session.get(Role.class,id));
 
         }catch (Exception e){
             log.error(e.getMessage());
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -31,7 +32,7 @@ public class RoleRepository implements IRepository<Role>
             return session.createQuery("from Role", Role.class).list();
         } catch (Exception e) {
             log.error("Error finding all Roles: " + e.getMessage(), e);
-            return null;
+            return List.of();
         }
     }
 
