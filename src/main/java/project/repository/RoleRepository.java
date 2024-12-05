@@ -11,7 +11,7 @@ import java.util.List;
 
 public class RoleRepository implements IRepository<Role>
 {
-    private  final Logger log = LogManager.getLogger(RoleRepository.class);
+    private final static Logger log = LogManager.getLogger(RoleRepository.class);
 
     @Override
     public Role findById(long id) {
@@ -69,7 +69,7 @@ public class RoleRepository implements IRepository<Role>
             transaction = session.beginTransaction();
             Role role = session.get(Role.class, id);
             if (role != null) {
-                session.delete(role);
+                session.remove(role);
             }
             transaction.commit();
         } catch (Exception e) {

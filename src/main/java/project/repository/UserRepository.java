@@ -14,7 +14,7 @@ import java.util.List;
 
 public class UserRepository implements IRepository<User> {
 
-    private final Logger log = LogManager.getLogger(UserRepository.class);
+    private final static Logger log = LogManager.getLogger(UserRepository.class);
 
     @Override
     public User findById(long id) {

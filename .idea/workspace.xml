@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75bc6fd0-5f1b-4320-8014-e1e679cec655" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/repository/IRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/repository/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/StatusRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/repository/StatusRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/repository/TagRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/repository/TaskRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/repository/UserRepository.java" afterDir="false" />
-    </list>
+    <list default="true" id="75bc6fd0-5f1b-4320-8014-e1e679cec655" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

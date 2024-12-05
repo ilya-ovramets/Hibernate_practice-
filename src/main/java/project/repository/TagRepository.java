@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TagRepository implements IRepository<Tag> {
 
-    private final Logger log = LogManager.getLogger(TagRepository.class);
+    private final static Logger log = LogManager.getLogger(TagRepository.class);
 
 
     @Override

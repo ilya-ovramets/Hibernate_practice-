@@ -1,9 +1,9 @@
 package project.entity;
 import jakarta.persistence.*;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "tasks")
@@ -21,7 +21,7 @@ public class Task {
     private  String body;
 
     @ManyToMany(mappedBy = "tasks")
-    private List<User> performens;
+    private List<User> performers;
 
     @Column(name = "start_date")
     private LocalDate startDate;
@@ -54,7 +54,7 @@ public class Task {
         this.id = id;
         this.title = title;
         this.body = body;
-        this.performens = performens;
+        this.performers = performens;
         this.startDate = startDate;
         this.finishDate = finishDate;
         this.createBy = createBy;
@@ -110,12 +110,13 @@ public class Task {
         this.createBy = createBy;
     }
 
-    public List<User> getPerformens() {
-        return performens;
+    public List<User> getPerformers() {
+        return performers;
     }
 
-    public void setPerformens(List<User> performens) {
-        this.performens = performens;
+
+    public void setPerformers(List<User> performers) {
+        this.performers = performers;
     }
 
     public long getId() {
@@ -133,5 +134,33 @@ public class Task {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                ", performers=" + performers +
+                ", startDate=" + startDate +
+                ", finishDate=" + finishDate +
+                ", createBy=" + createBy +
+                ", status=" + status +
+                ", tags=" + tags +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return id == task.id && createBy == task.createBy && Objects.equals(title, task.title) && Objects.equals(body, task.body) && Objects.equals(performers, task.performers) && Objects.equals(startDate, task.startDate) && Objects.equals(finishDate, task.finishDate) && Objects.equals(status, task.status) && Objects.equals(tags, task.tags);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, body, performers, startDate, finishDate, createBy, status, tags);
     }
 }

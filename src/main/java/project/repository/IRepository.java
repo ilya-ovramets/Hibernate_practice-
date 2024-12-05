@@ -4,8 +4,6 @@ import java.util.List;
 
 public interface IRepository<T> {
 
-
-
     T findById(long id);
 
     List<T> findAll();

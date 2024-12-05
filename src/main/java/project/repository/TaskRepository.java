@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TaskRepository implements IRepository<Task> {
 
-    private final Logger log = LogManager.getLogger(TaskRepository.class);
+    private final static Logger log = LogManager.getLogger(TaskRepository.class);
 
 
     @Override

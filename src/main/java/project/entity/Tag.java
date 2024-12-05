@@ -23,9 +23,9 @@ public class Tag {
 
     }
 
-    public Tag(long id, String name) {
-        name = name;
+    public Tag(long id, String name, List<Task> tasks) {
         this.id = id;
+        this.name = name;
     }
 
     public String getName() {

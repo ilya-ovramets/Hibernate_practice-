@@ -12,7 +12,7 @@ import java.util.List;
 
 public class StatusRepository implements IRepository<Status> {
 
-    private final Logger log = LogManager.getLogger(StatusRepository.class);
+    private final static Logger log = LogManager.getLogger(StatusRepository.class);
 
     @Override
     public Status findById(long id) {
