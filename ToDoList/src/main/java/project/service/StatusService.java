@@ -11,18 +11,18 @@ import java.util.List;
 public class StatusService implements CrudService<StatusDTO>{
 
     private static final Logger log = LogManager.getLogger(StatusService.class);
-    private final StatusRepository statusDao;
+    private final StatusRepository statusRepository;
     private final StatusMapper statusMapper;
 
     public StatusService(){
-        statusDao = new StatusRepository();
+        statusRepository = new StatusRepository();
         statusMapper = new StatusMapper();
     }
 
     @Override
     public StatusDTO getById(long id) {
         try {
-            StatusDTO statusDTO = statusMapper.toDTO(statusDao.findById(id));
+            StatusDTO statusDTO = statusMapper.toDTO(statusRepository.findById(id));
 
             return  statusDTO;
         }catch (Exception e){
@@ -34,7 +34,7 @@ public class StatusService implements CrudService<StatusDTO>{
     @Override
     public List<StatusDTO> getAll() {
         try {
-            List<StatusDTO> statusDTOs = statusMapper.toStatusDTOS(statusDao.findAll());
+            List<StatusDTO> statusDTOs = statusMapper.toStatusDTOS(statusRepository.findAll());
 
             return  statusDTOs;
         }catch (Exception e){
@@ -48,7 +48,7 @@ public class StatusService implements CrudService<StatusDTO>{
         try {
             var status = statusMapper.toEntity(statusDTO);
 
-            statusDao.save(status);
+            statusRepository.save(status);
 
             return  true;
         }catch (Exception e){
@@ -62,7 +62,7 @@ public class StatusService implements CrudService<StatusDTO>{
         try {
             var status = statusMapper.toEntity(statusDTO);
 
-            statusDao.update(status);
+            statusRepository.update(status);
 
             return  true;
         }catch (Exception e){
@@ -76,7 +76,7 @@ public class StatusService implements CrudService<StatusDTO>{
         try {
             var status = statusMapper.toEntity(statusDTO);
 
-            statusDao.delete(status.getId());
+            statusRepository.delete(status.getId());
 
             return  true;
         }catch (Exception e){

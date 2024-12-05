@@ -12,11 +12,11 @@ public class TaskService implements CrudService<TaskDTO>{
 
     private static final Logger log = LogManager.getLogger(TaskService.class);
 
-    private final TaskRepository taskDao;
+    private final TaskRepository taskRepository;
     private final TaskMapper taskMapper;
 
     public TaskService(){
-        this.taskDao = new TaskRepository();
+        this.taskRepository = new TaskRepository();
         this.taskMapper = new TaskMapper();
     }
 
@@ -24,7 +24,7 @@ public class TaskService implements CrudService<TaskDTO>{
     @Override
     public TaskDTO getById(long id) {
         try {
-            TaskDTO taskDTO = taskMapper.toDTO(taskDao.findById(id));
+            TaskDTO taskDTO = taskMapper.toDTO(taskRepository.findById(id));
 
             return  taskDTO;
         }catch (Exception e){
@@ -37,7 +37,7 @@ public class TaskService implements CrudService<TaskDTO>{
     public List<TaskDTO> getAll() {
         try {
 
-            return taskMapper.toDTOS(taskDao.findAll());
+            return taskMapper.toDTOS(taskRepository.findAll());
 
         }catch (Exception e){
             log.error(e.getMessage());
@@ -51,7 +51,7 @@ public class TaskService implements CrudService<TaskDTO>{
         try {
             var task = taskMapper.toEntity(taskDTO);
 
-            taskDao.save(task);
+            taskRepository.save(task);
 
             return true;
         }catch (Exception e){
@@ -65,7 +65,7 @@ public class TaskService implements CrudService<TaskDTO>{
         try {
             var task = taskMapper.toEntity(taskDTO);
 
-            taskDao.update(task);
+            taskRepository.update(task);
 
             return true;
         }catch (Exception e){
@@ -78,7 +78,7 @@ public class TaskService implements CrudService<TaskDTO>{
     public boolean delete(TaskDTO taskDTO) {
         try {
 
-            taskDao.delete(taskDTO.getId());
+            taskRepository.delete(taskDTO.getId());
 
             return true;
         }catch (Exception e){

@@ -4,6 +4,7 @@ import project.entity.Task;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 public class StatusDTO implements Serializable {
     private long id;
@@ -44,6 +45,19 @@ public class StatusDTO implements Serializable {
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StatusDTO statusDTO = (StatusDTO) o;
+        return id == statusDTO.id && Objects.equals(statusName, statusDTO.statusName) && Objects.equals(tasks, statusDTO.tasks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, statusName, tasks);
     }
 
     @Override

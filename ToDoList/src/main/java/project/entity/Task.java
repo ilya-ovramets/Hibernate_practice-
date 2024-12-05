@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tasks")
-public class Task implements Serializable {
+public class Task {
 
 
     @Id

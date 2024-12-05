@@ -35,6 +35,4 @@ public class TagMapper {
     public  List<Tag> toEntitys(List<TagDTO> tags){
         return tags.stream().map(this::toEntity).toList();
     }
-
-
 }

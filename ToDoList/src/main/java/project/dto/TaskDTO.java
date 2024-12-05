@@ -7,6 +7,7 @@ import project.entity.User;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 public class TaskDTO implements Serializable {
 
@@ -113,5 +114,33 @@ public class TaskDTO implements Serializable {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TaskDTO taskDTO = (TaskDTO) o;
+        return id == taskDTO.id && createBy == taskDTO.createBy && Objects.equals(title, taskDTO.title) && Objects.equals(body, taskDTO.body) && Objects.equals(performens, taskDTO.performens) && Objects.equals(startDate, taskDTO.startDate) && Objects.equals(finishDate, taskDTO.finishDate) && Objects.equals(status, taskDTO.status) && Objects.equals(tags, taskDTO.tags);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, body, performens, startDate, finishDate, createBy, status, tags);
+    }
+
+    @Override
+    public String toString() {
+        return "TaskDTO{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                ", performens=" + performens +
+                ", startDate=" + startDate +
+                ", finishDate=" + finishDate +
+                ", createBy=" + createBy +
+                ", status=" + status +
+                ", tags=" + tags +
+                '}';
     }
 }

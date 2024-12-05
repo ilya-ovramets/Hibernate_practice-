@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "tags")
-public class Tag implements Serializable {
+public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

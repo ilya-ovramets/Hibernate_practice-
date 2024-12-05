@@ -1,40 +1,92 @@
 package project.service;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import project.dao.RoleRepository;
 import project.dto.RoleDTO;
+import project.dto.StatusDTO;
 import project.mapper.RoleMapper;
 
 import java.util.List;
 
-public class RoleService{
-
-    RoleRepository roleDao = new RoleRepository();
-    RoleMapper roleMapper = new RoleMapper();
+public class RoleService implements CrudService<RoleDTO>{
 
 
-    public boolean save(RoleDTO roleDTO){
-        roleDao.save(roleMapper.toEntity(roleDTO));
-        return true;
-    }
+    private final static Logger log = LogManager.getLogger(RoleService.class);
+    private final RoleRepository roleRepository;
+    private final RoleMapper roleMapper;
 
-    public boolean delete(RoleDTO roleDTO){
-        roleDao.delete(roleMapper.toEntity(roleDTO).getId());
-        return true;
-    }
 
-    public RoleDTO get(RoleDTO roleDTO){
-        return roleMapper.toDTO(roleDao.findById(roleDTO.getId()));
-    }
 
-    public boolean update(RoleDTO roleDTO){
-        roleDao.update(roleMapper.toEntity(roleDTO));
-        return true;
-    }
-
-    public List<RoleDTO> getAll(List<RoleDTO> roleDTOS){
-        return roleMapper.toDTOS(roleDao.findAll());
+    public RoleService(){
+        roleRepository = new RoleRepository();
+        roleMapper = new RoleMapper();
     }
 
 
+    @Override
+    public RoleDTO getById(long id) {
+        try {
+            RoleDTO roleDTO = roleMapper.toDTO(roleRepository.findById(id));
 
+            return  roleDTO;
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public List<RoleDTO> getAll() {
+        try {
+            List<RoleDTO> roleDTOS = roleMapper.toDTOS(roleRepository.findAll());
+
+            return  roleDTOS;
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public boolean save(RoleDTO roleDTO) {
+        try {
+
+            var role = roleMapper.toEntity(roleDTO);
+            roleRepository.save(role);
+
+            return true;
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return false;
+        }
+    }
+
+    @Override
+    public boolean update(RoleDTO roleDTO) {
+        try {
+
+            var role = roleMapper.toEntity(roleDTO);
+            roleRepository.update(role);
+
+            return true;
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return false;
+        }
+    }
+
+    @Override
+    public boolean delete(RoleDTO roleDTO) {
+        try {
+
+            var role = roleMapper.toEntity(roleDTO);
+            roleRepository.delete(role.getId());
+
+            return true;
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return false;
+        }
+    }
 }

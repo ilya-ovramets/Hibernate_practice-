@@ -13,11 +13,11 @@ public class TagService implements CrudService<TagDTO>{
 
     private static final Logger log = LogManager.getLogger(TagService.class);
     private final TagRepository tagDao;
-    private final TagMapper tagMapper;
+    private final TagMapper tagRepository;
 
     public TagService(){
         tagDao = new TagRepository();
-        tagMapper = new TagMapper();
+        tagRepository = new TagMapper();
     }
 
 
@@ -25,7 +25,7 @@ public class TagService implements CrudService<TagDTO>{
     @Override
     public TagDTO getById(long id) {
         try {
-            TagDTO tagDTO = tagMapper.toDTO(tagDao.findById(id));
+            TagDTO tagDTO = tagRepository.toDTO(tagDao.findById(id));
 
             return  tagDTO;
         }catch (Exception e){
@@ -37,7 +37,7 @@ public class TagService implements CrudService<TagDTO>{
     @Override
     public List<TagDTO> getAll() {
         try {
-            List<TagDTO> tagDTOS = tagMapper.toDTOS(tagDao.findAll());
+            List<TagDTO> tagDTOS = tagRepository.toDTOS(tagDao.findAll());
 
             return  tagDTOS;
         }catch (Exception e){
@@ -50,7 +50,7 @@ public class TagService implements CrudService<TagDTO>{
     public boolean save(TagDTO tagDTO) {
         try {
 
-            var tag = tagMapper.toEntity(tagDTO);
+            var tag = tagRepository.toEntity(tagDTO);
 
             tagDao.save(tag);
 
@@ -65,7 +65,7 @@ public class TagService implements CrudService<TagDTO>{
     public boolean update(TagDTO tagDTO) {
         try {
 
-            var tag = tagMapper.toEntity(tagDTO);
+            var tag = tagRepository.toEntity(tagDTO);
 
             tagDao.update(tag);
 

@@ -5,6 +5,7 @@ import project.entity.Task;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 public class UserDTO implements Serializable {
 
@@ -102,5 +103,18 @@ public class UserDTO implements Serializable {
                 ", password='" + password + '\'' +
                 ", role=" + role +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserDTO userDTO = (UserDTO) o;
+        return id == userDTO.id && Objects.equals(firstName, userDTO.firstName) && Objects.equals(lastName, userDTO.lastName) && Objects.equals(email, userDTO.email) && Objects.equals(tasks, userDTO.tasks) && Objects.equals(password, userDTO.password) && Objects.equals(role, userDTO.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email, tasks, password, role);
     }
 }

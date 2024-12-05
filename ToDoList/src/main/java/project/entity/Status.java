@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "statuses")
-public class Status implements Serializable {
+public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

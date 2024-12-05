@@ -12,10 +12,10 @@ public class UserService implements CrudService<UserDTO>{
 
     private final static Logger log = LogManager.getLogger(UserService.class);
     private final UserMapper userMapper;
-    private final UserRepository userDao;
+    private final UserRepository userRepository;
 
     public UserService(){
-        userDao = new UserRepository();
+        userRepository = new UserRepository();
         userMapper = new UserMapper();
     }
 
@@ -24,7 +24,7 @@ public class UserService implements CrudService<UserDTO>{
     @Override
     public UserDTO getById(long id) {
         try {
-            UserDTO userDTO = userMapper.toDTO(userDao.findById(id));
+            UserDTO userDTO = userMapper.toDTO(userRepository.findById(id));
 
             return  userDTO;
         }catch (Exception e){
@@ -36,7 +36,7 @@ public class UserService implements CrudService<UserDTO>{
     @Override
     public List<UserDTO> getAll() {
         try {
-            List<UserDTO> usersDTO = userMapper.toDTOS(userDao.findAll());
+            List<UserDTO> usersDTO = userMapper.toDTOS(userRepository.findAll());
 
             return  usersDTO;
         }catch (Exception e){
@@ -48,7 +48,7 @@ public class UserService implements CrudService<UserDTO>{
     @Override
     public boolean save(UserDTO userDTO) {
         try {
-            userDao.save(userMapper.toEntity(userDTO));
+            userRepository.save(userMapper.toEntity(userDTO));
             return  true;
         }catch (Exception e){
             log.error(e.getMessage());
@@ -59,7 +59,7 @@ public class UserService implements CrudService<UserDTO>{
     @Override
     public boolean update(UserDTO userDTO) {
         try {
-            userDao.update(userMapper.toEntity(userDTO));
+            userRepository.update(userMapper.toEntity(userDTO));
             return  true;
         }catch (Exception e){
             log.error(e.getMessage());
@@ -70,7 +70,7 @@ public class UserService implements CrudService<UserDTO>{
     @Override
     public boolean delete(UserDTO userDTO) {
         try {
-            userDao.delete(userMapper.toEntity(userDTO).getId());
+            userRepository.delete(userMapper.toEntity(userDTO).getId());
             return  true;
         }catch (Exception e){
             log.error(e.getMessage());
