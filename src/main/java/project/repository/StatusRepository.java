@@ -1,45 +1,82 @@
 package project.repository;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.example.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import project.entity.Role;
 import project.entity.Status;
 
 import java.util.List;
 
-public class StatusRepository implements Repository<Status> {
+public class StatusRepository implements IRepository<Status> {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final Logger log = LogManager.getLogger(StatusRepository.class);
 
     @Override
     public Status findById(long id) {
-        return entityManager.find(Status.class,id);
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+
+            return session.get(Status.class,id);
+
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return null;
+        }
     }
 
     @Override
     public List<Status> findAll() {
-        return entityManager.createQuery("Select * from status").getResultList();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+
+            return session.createQuery("from Status", Status.class).list();
+
+        }catch (Exception e){
+            log.error("Error finding all Statuses: " + e.getMessage());
+            return null;
+        }
     }
 
     @Override
     public void save(Status status) {
-        entityManager.persist(status);
-
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.persist(status);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            log.error("Error saving Status: " + e.getMessage(), e);
+        }
     }
 
     @Override
     public void update(Status status) {
-        entityManager.merge(status);
-
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.merge(status);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            log.error("Error updating Status: " + e.getMessage(), e);
+        }
     }
 
     @Override
     public void delete(long id) {
-        Status status = findById(id);
-
-        if(status != null){
-            entityManager.remove(status);
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            Status status = session.get(Status.class, id);
+            if (status != null) {
+                session.remove(status);
+            }
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            log.error("Error deleting Status: " + e.getMessage(), e);
         }
-
     }
 }

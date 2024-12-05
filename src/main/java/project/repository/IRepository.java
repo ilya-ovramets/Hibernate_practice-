@@ -2,7 +2,9 @@ package project.repository;
 
 import java.util.List;
 
-public interface Repository<T> {
+public interface IRepository<T> {
+
+
 
     T findById(long id);
 

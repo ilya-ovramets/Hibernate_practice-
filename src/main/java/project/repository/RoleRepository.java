@@ -9,7 +9,7 @@ import project.entity.Role;
 
 import java.util.List;
 
-public class RoleRepository implements Repository<Role>
+public class RoleRepository implements IRepository<Role>
 {
     private  final Logger log = LogManager.getLogger(RoleRepository.class);
 
@@ -28,7 +28,7 @@ public class RoleRepository implements Repository<Role>
     @Override
     public List<Role> findAll() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("from Role", Role.class).list(); // Получаем все записи
+            return session.createQuery("from Role", Role.class).list();
         } catch (Exception e) {
             log.error("Error finding all Roles: " + e.getMessage(), e);
             return null;
@@ -40,7 +40,7 @@ public class RoleRepository implements Repository<Role>
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.save(role);
+            session.persist(role);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
@@ -53,7 +53,7 @@ public class RoleRepository implements Repository<Role>
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.update(role);
+            session.merge(role);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
