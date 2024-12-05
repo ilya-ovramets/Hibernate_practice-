@@ -6,8 +6,9 @@ import project.entity.User;
 
 import java.util.List;
 
-public class UserMapper {
+public class UserMapper implements IMapper<User,UserDTO>{
 
+    @Override
     public UserDTO toDTO(User user){
         UserDTO userDTO = new UserDTO(
                 user.getId(),
@@ -22,6 +23,7 @@ public class UserMapper {
         return userDTO;
     }
 
+    @Override
     public User toEntity(UserDTO user){
         User userN = new User(
                 user.getFirstName(),
@@ -36,10 +38,12 @@ public class UserMapper {
         return userN;
     }
 
+    @Override
     public List<UserDTO> toDTOS(List<User> users){
         return users.stream().map(this::toDTO).toList();
     }
 
+    @Override
     public List<User> toEntitys(List<UserDTO> users){
         return users.stream().map(this::toEntity).toList();
     }

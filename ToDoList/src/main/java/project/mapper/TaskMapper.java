@@ -5,8 +5,9 @@ import project.entity.Task;
 
 import java.util.List;
 
-public class TaskMapper {
+public class TaskMapper implements IMapper<Task,TaskDTO>{
 
+    @Override
     public TaskDTO toDTO(Task task){
         TaskDTO taskDTO = new TaskDTO();
 
@@ -24,6 +25,7 @@ public class TaskMapper {
 
     }
 
+    @Override
     public Task toEntity(TaskDTO taskDTO){
         Task task = new Task();
 
@@ -41,14 +43,13 @@ public class TaskMapper {
 
     }
 
+    @Override
     public List<TaskDTO> toDTOS(List<Task> tasks){
         return tasks.stream().map(this::toDTO).toList();
     }
 
+    @Override
     public List<Task> toEntitys(List<TaskDTO> tasks){
         return tasks.stream().map(this::toEntity).toList();
     }
-
-
-
 }

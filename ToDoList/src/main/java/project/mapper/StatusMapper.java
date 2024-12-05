@@ -5,8 +5,9 @@ import project.entity.Status;
 
 import java.util.List;
 
-public class StatusMapper {
+public class StatusMapper implements IMapper<Status , StatusDTO>{
 
+    @Override
     public StatusDTO toDTO(Status status){
         StatusDTO statusDTO = new StatusDTO();
 
@@ -17,6 +18,7 @@ public class StatusMapper {
         return statusDTO;
     }
 
+    @Override
     public Status toEntity(StatusDTO statusDTO){
         Status status = new Status();
         status.setId(statusDTO.getId());
@@ -25,12 +27,14 @@ public class StatusMapper {
         return status;
     }
 
-    public List<StatusDTO> toStatusDTOS(List<Status> status){
+    @Override
+    public List<StatusDTO> toDTOS(List<Status> status){
 
         return status.stream().map(this::toDTO).toList();
 
     }
 
+    @Override
     public List<Status> toEntitys(List<StatusDTO> statusDTOS){
 
         return statusDTOS.stream().map(this::toEntity).toList();

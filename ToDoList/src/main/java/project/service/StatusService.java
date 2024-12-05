@@ -34,7 +34,7 @@ public class StatusService implements CrudService<StatusDTO>{
     @Override
     public List<StatusDTO> getAll() {
         try {
-            List<StatusDTO> statusDTOs = statusMapper.toStatusDTOS(statusRepository.findAll());
+            List<StatusDTO> statusDTOs = statusMapper.toDTOS(statusRepository.findAll());
 
             return  statusDTOs;
         }catch (Exception e){
