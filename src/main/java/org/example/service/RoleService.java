@@ -42,7 +42,7 @@ public class RoleService implements IService<RoleDTO> {
             return  roleDTO;
         }catch (Exception e){
             log.error(e.getMessage());
-            throw
+            throw new RuntimeException(e);
         }
     }
 

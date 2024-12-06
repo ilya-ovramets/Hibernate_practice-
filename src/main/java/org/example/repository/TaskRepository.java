@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.example.entity.Task;
 
 import java.util.List;
+import java.util.Optional;
 
 public class TaskRepository implements IRepository<Task> {
 
@@ -15,15 +16,15 @@ public class TaskRepository implements IRepository<Task> {
 
 
     @Override
-    public Task findById(long id) {
+    public Optional<Task> findById(long id) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
 
-            return session.get(Task.class,id);
+            return Optional.ofNullable(session.get(Task.class,id));
 
         }catch (Exception e){
             log.error(e.getMessage());
-            return null;
+            return Optional.empty();
         }
 
     }
@@ -37,7 +38,7 @@ public class TaskRepository implements IRepository<Task> {
 
         }catch (Exception e){
             log.error("Error finding all Tasks: " + e.getMessage());
-            return null;
+            return List.of();
         }
 
     }

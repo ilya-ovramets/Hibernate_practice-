@@ -14,7 +14,7 @@ public class TaskMapper implements IMapper<Task,TaskDTO>{
         taskDTO.setId(task.getId());
         taskDTO.setBody(task.getBody());
         taskDTO.setCreateBy(task.getCreateBy());
-        taskDTO.setPerformens(task.getPerformens());
+        taskDTO.setPerformens(task.getPerformers());
         taskDTO.setTags(task.getTags());
         taskDTO.setStartDate(task.getStartDate());
         taskDTO.setFinishDate(task.getFinishDate());
@@ -32,7 +32,7 @@ public class TaskMapper implements IMapper<Task,TaskDTO>{
         task.setId(taskDTO.getId());
         task.setBody(taskDTO.getBody());
         task.setCreateBy(taskDTO.getCreateBy());
-        task.setPerformens(taskDTO.getPerformens());
+        task.setPerformers(taskDTO.getPerformens());
         task.setTags(taskDTO.getTags());
         task.setStartDate(taskDTO.getStartDate());
         task.setFinishDate(taskDTO.getFinishDate());

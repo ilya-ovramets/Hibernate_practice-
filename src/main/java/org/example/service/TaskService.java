@@ -2,11 +2,13 @@ package org.example.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.entity.Task;
 import org.example.repository.TaskRepository;
 import org.example.dto.TaskDTO;
 import org.example.mapper.TaskMapper;
 
 import java.util.List;
+import java.util.Optional;
 
 public class TaskService implements IService<TaskDTO> {
 
@@ -24,12 +26,19 @@ public class TaskService implements IService<TaskDTO> {
     @Override
     public TaskDTO getById(long id) {
         try {
-            TaskDTO taskDTO = taskMapper.toDTO(taskRepository.findById(id));
 
-            return  taskDTO;
+            Optional<Task> optionalTask = taskRepository.findById(id);
+            if(optionalTask.isPresent()){
+                var task = optionalTask.get();
+                TaskDTO taskDTO = taskMapper.toDTO(task);
+                return  taskDTO;
+            }else {
+                throw new Exception("Task doesnt exist");
+            }
+
         }catch (Exception e){
             log.error(e.getMessage());
-            return null;
+            throw new RuntimeException(e);
         }
     }
 
@@ -37,11 +46,12 @@ public class TaskService implements IService<TaskDTO> {
     public List<TaskDTO> getAll() {
         try {
 
-            return taskMapper.toDTOS(taskRepository.findAll());
+            List<TaskDTO> taskDTOS = taskMapper.toDTOS(taskRepository.findAll());
 
+            return taskDTOS;
         }catch (Exception e){
             log.error(e.getMessage());
-            return null;
+            return List.of();
         }
 
     }

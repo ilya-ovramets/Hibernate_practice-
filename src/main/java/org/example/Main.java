@@ -4,17 +4,17 @@ package org.example;
 import org.example.dto.RoleDTO;
 import org.example.service.RoleService;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        RoleService roleService = new RoleService();
+        List<String> list = List.of();
 
-        RoleDTO role = new RoleDTO();
+        System.out.println(list);
 
-        role.setName("Gamer");
 
-        roleService.save(role);
 
     }
 }

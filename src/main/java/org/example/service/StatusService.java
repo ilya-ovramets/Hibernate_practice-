@@ -2,11 +2,13 @@ package org.example.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.entity.Status;
 import org.example.repository.StatusRepository;
 import org.example.dto.StatusDTO;
 import org.example.mapper.StatusMapper;
 
 import java.util.List;
+import java.util.Optional;
 
 public class StatusService implements IService<StatusDTO> {
 
@@ -22,12 +24,22 @@ public class StatusService implements IService<StatusDTO> {
     @Override
     public StatusDTO getById(long id) {
         try {
-            StatusDTO statusDTO = statusMapper.toDTO(statusRepository.findById(id));
 
-            return  statusDTO;
+            Optional<Status> statusOptional = statusRepository.findById(id);
+
+
+            if(statusOptional.isPresent()){
+                Status status = statusOptional.get();
+
+                StatusDTO statusDTO = statusMapper.toDTO(status);
+                return statusDTO;
+            }else {
+                throw new Exception("Role doesnt exist");
+            }
+
         }catch (Exception e){
             log.error(e.getMessage());
-            return null;
+            throw new RuntimeException(e);
         }
     }
 
@@ -39,7 +51,7 @@ public class StatusService implements IService<StatusDTO> {
             return  statusDTOs;
         }catch (Exception e){
             log.error(e.getMessage());
-            return null;
+            return List.of();
         }
     }
 

@@ -8,21 +8,22 @@ import org.hibernate.Transaction;
 import org.example.entity.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserRepository implements IRepository<User> {
 
     private final static Logger log = LogManager.getLogger(UserRepository.class);
 
     @Override
-    public User findById(long id) {
+    public Optional<User> findById(long id) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
 
-            return session.get(User.class,id);
+            return Optional.ofNullable(session.get(User.class,id));
 
         }catch (Exception e){
             log.error(e.getMessage());
-            return null;
+            return Optional.empty();
         }
 
     }
@@ -36,7 +37,7 @@ public class UserRepository implements IRepository<User> {
 
         }catch (Exception e){
             log.error("Error finding all Tags: " + e.getMessage());
-            return null;
+            return List.of();
         }
 
     }

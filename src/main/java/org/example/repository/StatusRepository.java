@@ -8,20 +8,21 @@ import org.hibernate.Transaction;
 import org.example.entity.Status;
 
 import java.util.List;
+import java.util.Optional;
 
 public class StatusRepository implements IRepository<Status> {
 
     private final static Logger log = LogManager.getLogger(StatusRepository.class);
 
     @Override
-    public Status findById(long id) {
+    public Optional<Status> findById(long id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
 
-            return session.get(Status.class,id);
+            return Optional.ofNullable(session.get(Status.class,id));
 
         }catch (Exception e){
             log.error(e.getMessage());
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -33,7 +34,7 @@ public class StatusRepository implements IRepository<Status> {
 
         }catch (Exception e){
             log.error("Error finding all Statuses: " + e.getMessage());
-            return null;
+            return List.of();
         }
     }
 

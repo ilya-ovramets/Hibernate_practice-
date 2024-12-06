@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.example.entity.Tag;
 
 import java.util.List;
+import java.util.Optional;
 
 public class TagRepository implements IRepository<Tag> {
 
@@ -15,14 +16,14 @@ public class TagRepository implements IRepository<Tag> {
 
 
     @Override
-    public Tag findById(long id) {
+    public Optional<Tag> findById(long id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
 
-            return session.get(Tag.class,id);
+            return Optional.ofNullable(session.get(Tag.class,id));
 
         }catch (Exception e){
             log.error(e.getMessage());
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -34,7 +35,7 @@ public class TagRepository implements IRepository<Tag> {
 
         }catch (Exception e){
             log.error("Error finding all Tags: " + e.getMessage());
-            return null;
+            return List.of();
         }
     }
 
