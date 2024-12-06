@@ -33,7 +33,7 @@ public class UserRepository implements IRepository<User> {
 
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
 
-            return session.createQuery("from Users", User.class).list();
+            return session.createQuery("from User", User.class).list();
 
         }catch (Exception e){
             log.error("Error finding all Tags: " + e.getMessage());
